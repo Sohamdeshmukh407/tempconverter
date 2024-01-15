@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f3f3f3;
+    }
+
+    .converter {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px;
+    }
+
+    button {
+      padding: 8px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="converter">
+    <h2>Celsius to Fahrenheit</h2>
+    <input type="number" id="celsiusToFahrenheit" placeholder="Enter Celsius">
+    <button onclick="convertCelsiusToFahrenheit()">Convert</button>
+    <p id="resultCelsiusToFahrenheit"></p>
+  </div>
+
+  <div class="converter">
+    <h2>Celsius to Kelvin</h2>
+    <input type="number" id="celsiusToKelvin" placeholder="Enter Celsius">
+    <button onclick="convertCelsiusToKelvin()">Convert</button>
+    <p id="resultCelsiusToKelvin"></p>
+  </div>
+
+  <div class="converter">
+    <h2>Fahrenheit to Celsius</h2>
+    <input type="number" id="fahrenheitToCelsius" placeholder="Enter Fahrenheit">
+    <button onclick="convertFahrenheitToCelsius()">Convert</button>
+    <p id="resultFahrenheitToCelsius"></p>
+  </div>
+
+  <div class="converter">
+    <h2>Kelvin to Celsius</h2>
+    <input type="number" id="kelvinToCelsius" placeholder="Enter Kelvin">
+    <button onclick="convertKelvinToCelsius()">Convert</button>
+    <p id="resultKelvinToCelsius"></p>
+  </div>
+
+  <div class="converter">
+    <h2>Fahrenheit to Kelvin</h2>
+    <input type="number" id="fahrenheitToKelvin" placeholder="Enter Fahrenheit">
+    <button onclick="convertFahrenheitToKelvin()">Convert</button>
+    <p id="resultFahrenheitToKelvin"></p>
+  </div>
+
+  <div class="converter">
+    <h2>Kelvin to Fahrenheit</h2>
+    <input type="number" id="kelvinToFahrenheit" placeholder="Enter Kelvin">
+    <button onclick="convertKelvinToFahrenheit()">Convert</button>
+    <p id="resultKelvinToFahrenheit"></p>
+  </div>
+
+  <script>
+    function convertCelsiusToFahrenheit() {
+      const celsius = parseFloat(document.getElementById("celsiusToFahrenheit").value);
+      const fahrenheit = (celsius * 9 / 5) + 32;
+      if (!isNaN(fahrenheit)) {
+        document.getElementById("resultCelsiusToFahrenheit").innerText = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+      } else {
+        document.getElementById("resultCelsiusToFahrenheit").innerText = "Please enter a valid number";
+      }
+    }
+
+    function convertCelsiusToKelvin() {
+      const celsius = parseFloat(document.getElementById("celsiusToKelvin").value);
+      const kelvin = celsius + 273.15;
+      if (!isNaN(kelvin)) {
+        document.getElementById("resultCelsiusToKelvin").innerText = `${celsius}°C is ${kelvin.toFixed(2)}K`;
+      } else {
+        document.getElementById("resultCelsiusToKelvin").innerText = "Please enter a valid number";
+      }
+    }
+
+    function convertFahrenheitToCelsius() {
+      const fahrenheit = parseFloat(document.getElementById("fahrenheitToCelsius").value);
+      const celsius = (fahrenheit - 32) * (5 / 9);
+      if (!isNaN(celsius)) {
+        document.getElementById("resultFahrenheitToCelsius").innerText = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+      } else {
+        document.getElementById("resultFahrenheitToCelsius").innerText = "Please enter a valid number";
+      }
+    }
+
+    function convertKelvinToCelsius() {
+      const kelvin = parseFloat(document.getElementById("kelvinToCelsius").value);
+      const celsius = kelvin - 273.15;
+      if (!isNaN(celsius)) {
+        document.getElementById("resultKelvinToCelsius").innerText = `${kelvin}K is ${celsius.toFixed(2)}°C`;
+      } else {
+        document.getElementById("resultKelvinToCelsius").innerText = "Please enter a valid number";
+      }
+    }
+
+    function convertFahrenheitToKelvin() {
+      const fahrenheit = parseFloat(document.getElementById("fahrenheitToKelvin").value);
+      const kelvin = (fahrenheit - 32) * (5 / 9) + 273.15;
+      if (!isNaN(kelvin)) {
+        document.getElementById("resultFahrenheitToKelvin").innerText = `${fahrenheit}°F is ${kelvin.toFixed(2)}K`;
+      } else {
+        document.getElementById("resultFahrenheitToKelvin").innerText = "Please enter a valid number";
+      }
+    }
+
+    function convertKelvinToFahrenheit() {
+      const kelvin = parseFloat(document.getElementById("kelvinToFahrenheit").value);
+      const fahrenheit = (kelvin - 273.15) * (9 / 5) + 32;
+      if (!isNaN(fahrenheit)) {
+        document.getElementById("resultKelvinToFahrenheit").innerText = `${kelvin}K is ${fahrenheit.toFixed(2)}°F`;
+      } else {
+        document.getElementById("resultKelvinToFahrenheit").innerText = "Please enter a valid number";
+      }
+    }
+  </script>
+</body>
+</html>
